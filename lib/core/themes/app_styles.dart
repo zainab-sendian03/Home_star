@@ -13,4 +13,16 @@ abstract class AppStyles {
       fontWeight: FontWeight.w400,
       color: Colors.black,
       fontFamily: 'Poppins');
+
+  static TextStyle f14Regular = TextStyle(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+      fontFamily: 'Poppins');
+
+  static TextStyle f24Bold = TextStyle(
+      fontSize: 24.sp,
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+      fontFamily: 'Poppins');
 }
