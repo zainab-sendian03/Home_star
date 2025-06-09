@@ -1,12 +1,31 @@
+// android/build.gradle
+
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
+        // AGP version must match Gradle wrapper (8.3.0)
         classpath 'com.android.tools.build:gradle:8.3.0'
-        // Add other classpaths here if needed, e.g., for Firebase, etc.
+
+        // Example: Add Firebase or Kotlin plugins if needed
+        // classpath 'com.google.gms:google-services:4.4.0'
+        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
     }
+}
+
+// Top-level clean task
+tasks.register("clean", Delete) {
+    delete rootProject.layout.buildDirectory
+}
+
+// Change default build directory location
+rootProject.buildDir = '../build'
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(':app')
 }
 
 allprojects {
@@ -14,15 +33,4 @@ allprojects {
         google()
         mavenCentral()
     }
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.layout.buildDirectory
-}
-
-rootProject.buildDir = '../build'
-
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-    project.evaluationDependsOn(':app')
 }

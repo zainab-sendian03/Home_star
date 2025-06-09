@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:home_star_app/core/themes/app_colors.dart';
 import 'package:home_star_app/core/themes/assets.dart';
 
 class SignInViewBody extends StatelessWidget {
@@ -19,8 +20,8 @@ class SignInViewBody extends StatelessWidget {
               const SizedBox(height: 16),
               Center(
                 child: Image.asset(
-                  Assets.assetsImagesIllustarion,
-                  height: 160,
+                  Assets.assetsImagesLogo,
+                  height: 250,
                 ),
               ),
               const SizedBox(height: 24),
@@ -40,7 +41,7 @@ class SignInViewBody extends StatelessWidget {
                   // Handle login logic
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF51D2C3),
+                  backgroundColor: AppColors.primaryColor,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -48,7 +49,7 @@ class SignInViewBody extends StatelessWidget {
                 ),
                 child: const Text(
                   'Login',
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
               const SizedBox(height: 16),
@@ -63,7 +64,7 @@ class SignInViewBody extends StatelessWidget {
                     child: const Text(
                       "Sign Up",
                       style: TextStyle(
-                        color: Color(0xFF51D2C3),
+                        color: Color(0xff4ec2f3),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -77,6 +78,7 @@ class SignInViewBody extends StatelessWidget {
     );
   }
 }
+//
 
 class _LoginForm extends StatelessWidget {
   const _LoginForm();
@@ -90,7 +92,7 @@ class _LoginForm extends StatelessWidget {
         const SizedBox(height: 8),
         TextField(
           decoration: InputDecoration(
-            hintText: "mary.elliot@mail.com",
+            hintText: "Enter Your Email",
             filled: true,
             fillColor: Colors.white,
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
@@ -106,7 +108,7 @@ class _LoginForm extends StatelessWidget {
         TextField(
           obscureText: true,
           decoration: InputDecoration(
-            hintText: "***********",
+            hintText: "Enter Your Password",
             filled: true,
             fillColor: Colors.white,
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
@@ -126,7 +128,7 @@ class _LoginForm extends StatelessWidget {
             child: const Text(
               "Forgot Password?",
               style: TextStyle(
-                color: Color(0xFF51D2C3),
+                color: AppColors.primaryColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
