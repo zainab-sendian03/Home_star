@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:home_star_app/core/themes/app_colors.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/utils.dart';
 import 'package:home_star_app/core/themes/assets.dart';
+import 'package:home_star_app/features/auth/sign_in_view.dart';
 
-class SignInViewBody extends StatelessWidget {
-  const SignInViewBody({super.key});
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SignInViewBody extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const Text(
-                'Welcome Back!',
+                'Create Account',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -34,38 +36,46 @@ class SignInViewBody extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
-              const _LoginForm(),
+              const _SignUpForm(),
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
-                  // Handle login logic
+                  // Handle sign up logic
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primaryColor,
+                  backgroundColor: const Color(0xff4ec2f3),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 child: const Text(
-                  'Login',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don’t have an account ? "),
+                  const Text("Already have an account? "),
                   GestureDetector(
                     onTap: () {
-                      // Navigate to sign up
+                      // Navigate to sign in
                     },
-                    child: const Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        color: Color(0xff4ec2f3),
-                        fontWeight: FontWeight.bold,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(const SignInView());
+                      },
+                      child: const Text(
+                        "Sign In",
+                        style: TextStyle(
+                          color: Color(0xff4ec2f3),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -78,16 +88,31 @@ class SignInViewBody extends StatelessWidget {
     );
   }
 }
-//
 
-class _LoginForm extends StatelessWidget {
-  const _LoginForm();
+class _SignUpForm extends StatelessWidget {
+  const _SignUpForm();
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const Text("Enter Your Name",
+            style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        TextField(
+          decoration: InputDecoration(
+            hintText: "Enter Your Email",
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide.none,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
         const Text("Email", style: TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: 8),
         TextField(
@@ -118,22 +143,23 @@ class _LoginForm extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 12),
-        Align(
-          alignment: Alignment.centerRight,
-          child: GestureDetector(
-            onTap: () {
-              // Handle forgot password
-            },
-            child: const Text(
-              "Forgot Password?",
-              style: TextStyle(
-                color: AppColors.primaryColor,
-                fontWeight: FontWeight.bold,
-              ),
+        const SizedBox(height: 16),
+        const Text("Confirm Password",
+            style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        TextField(
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: "Re-enter Your Password",
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide.none,
             ),
           ),
-        )
+        ),
       ],
     );
   }
