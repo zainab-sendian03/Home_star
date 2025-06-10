@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 import 'package:home_star_app/core/routes/app_pages.dart';
 import 'package:home_star_app/core/themes/app_styles.dart';
@@ -16,7 +17,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late final AnimationController _controller;
   late final Animation<Offset> _slideAnimation;
   late final Animation<double> _fadeAnimation;
+  // ignore: unused_field
   late final Animation<double> _textScaleAnimation;
+  // ignore: unused_field
+  late final Animation<double> _logoScaleAnimation;
 
   @override
   void initState() {
@@ -45,13 +49,21 @@ class _SplashViewBodyState extends State<SplashViewBody>
       CurvedAnimation(parent: _controller, curve: Curves.easeInOutBack),
     );
 
+    _logoScaleAnimation = Tween<double>(begin: 0.1, end: 0.5).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOutBack),
+    );
+
     _controller.forward();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed && mounted) {
+        _navigateToNext();
+      }
+    });
   }
 
   Future<void> _navigateToNext() async {
     await Future.delayed(const Duration(seconds: 2));
-
-    Get.to(AppPages.onboarding);
+    Get.offAllNamed(AppPages.onboarding);
   }
 
   @override
@@ -72,23 +84,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
             children: [
               Image.asset(
                 Assets.assetsImagesLogo,
+                scale: 4,
               ),
-              const SizedBox(height: 24),
-              ScaleTransition(
-                scale: _textScaleAnimation,
-                child: Text('نجم',
-                    style:
-                        AppStyles.f58semibold.copyWith(fontFamily: 'Poppins')),
-              ),
-              ScaleTransition(
-                scale: _textScaleAnimation,
-                child: Text(
-                  'المنزل',
-                  style: AppStyles.f41Regular.copyWith(
-                    letterSpacing: 12.0,
-                    height: 1.2,
-                    fontFamily: 'Poppins',
-                  ),
+              const SizedBox(height: 12),
+              Text('نجم',
+                  style: AppStyles.f58semibold.copyWith(fontFamily: 'Poppins')),
+              Text(
+                'المنزل',
+                style: AppStyles.f41Regular.copyWith(
+                  letterSpacing: 12.0,
+                  height: 1.2,
+                  fontFamily: 'Poppins',
                 ),
               ),
             ],

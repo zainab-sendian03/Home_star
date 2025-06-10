@@ -31,11 +31,9 @@ class ProfileChildViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            // Profile Section
             Center(
               child: Column(
                 children: [
-                  // Profile Avatar
                   Container(
                     width: 120,
                     height: 120,
@@ -164,39 +162,6 @@ class ProfileChildViewBody extends StatelessWidget {
             const SizedBox(height: 100), // Space for bottom navigation
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2, // Profile tab selected
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Tasks',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Rewards',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        onTap: (index) {
-          // Handle navigation between tabs
-          switch (index) {
-            case 0:
-              // Navigate to Tasks screen
-              break;
-            case 1:
-              // Navigate to Rewards screen
-              break;
-            case 2:
-              // Already on Profile screen
-              break;
-          }
-        },
       ),
     );
   }

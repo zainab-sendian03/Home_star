@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:home_star_app/features/home/views/widgets/profile_child_view_body.dart';
+import 'package:home_star_app/features/profile/view/widgets/profile_child_view_body.dart';
 
 class ProfileChildView extends StatelessWidget {
   const ProfileChildView({super.key});

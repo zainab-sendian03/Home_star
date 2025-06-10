@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:home_star_app/features/home/profile_child_view.dart';
+import 'package:home_star_app/core/routes/app_routes.dart';
+import 'package:home_star_app/features/splash/views/splash_view.dart';
 
 class HomeStar extends StatelessWidget {
   const HomeStar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: Size(375, 812),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ProfileChildView(),
+        home: SplashView(),
+        getPages: AppRoutes.routes,
+        initialRoute: '/',
       ),
     );
   }

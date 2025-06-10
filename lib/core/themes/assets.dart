@@ -6,12 +6,21 @@ class Assets {
   /// assets/images/avatar.jpg
   static const String assetsImagesAvatar = "assets/images/avatar.jpg";
 
+  /// Assets for assetsImagesAvatar2
+  /// assets/images/avatar2.png
+  static const String assetsImagesAvatar2 = "assets/images/avatar2.jpg";
+
+  /// Assets for assetsImagesAvatar3
+  /// assets/images/avatar3.png
+  static const String assetsImagesAvatar3 = "assets/images/avatar3.jpg";
+
+  /// Assets for assetsImagesAvatar4
+  /// assets/images/avatar4.png
+  static const String assetsImagesAvatar4 = "assets/images/avatar4.jpg";
+
   /// Assets for assetsImagesCircle
   /// assets/images/circle.png
   static const String assetsImagesCircle = "assets/images/circle.png";
-
-  /// Assets for assetsImagesEllipse 1
-  /// assets/images/Ellipse 1.svg
 
   /// Assets for assetsImagesIcecream
   /// assets/images/icecream.png
@@ -24,6 +33,7 @@ class Assets {
   /// Assets for assetsImagesLogo
   /// assets/images/logo.png
   static const String assetsImagesLogo = "assets/images/logo.png";
+  static const String assetsImagesSky = "assets/images/sky.jpg";
 
   /// Assets for assetsImagesMovienight
   /// assets/images/movienight.png
@@ -61,4 +71,8 @@ class Assets {
   /// Assets for assetsImagesVideoGame
   /// assets/images/video_game.png
   static const String assetsImagesVideoGame = "assets/images/video_game.png";
+
+  /// Assets for assetsImagesChild1
+  /// assets/images/child1.png
+  static const String assetsImagesChild1 = 'assets/images/child1.png';
 }

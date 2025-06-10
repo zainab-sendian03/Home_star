@@ -14,8 +14,10 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   
-  get: ^4.7.2
- 
+  get: ^4.6.6
+  image_picker: ^1.0.7
+  uuid: ^4.3.3
+
 
 dev_dependencies:
   flutter_lints: ^3.0.0

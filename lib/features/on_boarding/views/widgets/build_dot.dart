@@ -7,7 +7,7 @@ Widget buildDot(bool isActive) {
     height: 8.h,
     width: isActive ? 24.w : 8.w,
     decoration: BoxDecoration(
-      color: isActive ? const Color(0xFFE5978C) : Colors.grey.shade300,
+      color: isActive ? const Color(0xff47B4EA) : Colors.grey.shade300,
       borderRadius: BorderRadius.circular(8.r),
     ),
   );
